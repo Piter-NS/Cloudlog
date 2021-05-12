@@ -41,12 +41,9 @@
 					<?php } ?>
 					<th><?php echo $this->lang->line('gen_hamradio_call'); ?></th>
 					<th><?php echo $this->lang->line('gen_hamradio_mode'); ?></th>
-					<?php if(($this->config->item('use_auth')) && ($this->session->userdata('user_type') >= 2)) { ?>
 					<th class="d-none d-sm-table-cell"><?php echo $this->lang->line('gen_hamradio_rst_sent'); ?></th>
 					<th class="d-none d-sm-table-cell"><?php echo $this->lang->line('gen_hamradio_rst_recv'); ?></th>
-					<?php } ?>
 					<th><?php echo $this->lang->line('gen_hamradio_band'); ?></th>
-					<th><?php echo $this->lang->line('general_word_country'); ?></th>
 				</tr>
 			</thead>
 
