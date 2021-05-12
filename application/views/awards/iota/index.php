@@ -1,5 +1,4 @@
-
-<div class="container">
+<div class="container award">
     <h2><?php echo $page_title; ?></h2>
 
     <form class="form" action="<?php echo site_url('awards/iota'); ?>" method="post" enctype="multipart/form-data">

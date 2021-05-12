@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container award">
     <h2><?php echo $page_title; ?></h2>
     <?php if ($counties_array) { ?>
     <table  style="width:100%" class="countiestable table table-sm table-bordered table-hover table-striped table-condensed text-center">

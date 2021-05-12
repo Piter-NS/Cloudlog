@@ -1,4 +1,4 @@
-<div class="container map-QSOs">
+<div class="container map-QSOs stat">
 
 	<h2>Map: All QSOs for "<?php echo $station_profile->station_profile_name; ?>" Station Profile</h2>
 

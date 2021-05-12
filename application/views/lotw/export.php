@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container lotw">
 
 <h2><?php echo $page_title; ?></h2>
 <?php $this->load->view('layout/messages'); ?>

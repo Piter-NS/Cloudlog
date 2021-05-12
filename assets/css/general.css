@@ -31,27 +31,31 @@ thead > tr > td {
 }
 
 .statistics_custom {
-	padding-top: 15px;
+	padding-top: 5px;
 }
 
 .notes {
-	padding-top: 15px;
+	padding-top: 25px;
 }
 
 .eqsl {
-    padding-top: 15px;
+    padding-top: 5px;
 }
 
 .search {
-	padding-top: 15px;
+	padding-top: 5px;
 }
 
 .logbook {
-	padding-top: 15px;
+	padding-top: 5px;
+}
+
+.user, .station, .qsl, .kml, .award, .lotw, .stat, .mode, .contest, .backup, .update, .debug {
+	margin-top: .5rem;
 }
 
 .adif {
-    padding-top: 15px;
+    padding-top: 5px;
 }
 
 .adif .alert p {

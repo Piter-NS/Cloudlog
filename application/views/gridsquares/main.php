@@ -1,13 +1,11 @@
-<div class="container">
+<div class="container stat">
 
-	<br>
-
-		<?php if($this->session->flashdata('message')) { ?>
-			<!-- Display Message -->
-			<div class="alert-message error">
-			  <p><?php echo $this->session->flashdata('message'); ?></p>
-			</div>
-		<?php } ?>
+	<?php if($this->session->flashdata('message')) { ?>
+		<!-- Display Message -->
+		<div class="alert-message error">
+		  <p><?php echo $this->session->flashdata('message'); ?></p>
+		</div>
+	<?php } ?>
 
 	<h2><?php echo $page_title; ?></h2>
 

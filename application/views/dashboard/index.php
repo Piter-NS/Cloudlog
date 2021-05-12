@@ -7,7 +7,7 @@
 		</div>
 	<?php } else { ?>
 		<div class="alert alert-warning" role="alert">
-			  <span class="badge badge-info"><?php echo $this->lang->line('general_word_important'); ?></span> <i class="fas fa-broadcast-tower"></i> <?php echo $this->lang->line('notice_turn_the_radio_on'); ?>
+			  <span class="badge badge-info"><?php echo $this->lang->line('general_word_important'); ?></span>&nbsp;&nbsp;&nbsp;<i class="fas fa-broadcast-tower"></i>&nbsp;&nbsp;&nbsp;<?php echo $this->lang->line('notice_turn_the_radio_on'); ?>
 		</div>
 	<?php } ?>
 
@@ -23,7 +23,7 @@
 <!-- Map -->
 <div id="map" style="width: 100%; height: 350px"></div>
 
-<div style="padding-top: 0px; margin-top: 5px;" class="container dashboard">
+<div style="/*padding-top: 0px;*/ margin-top: 5px;" class="container dashboard">
 
 <!-- Log Data -->
 <div class="row logdata">
@@ -41,9 +41,12 @@
 					<?php } ?>
 					<th><?php echo $this->lang->line('gen_hamradio_call'); ?></th>
 					<th><?php echo $this->lang->line('gen_hamradio_mode'); ?></th>
+					<?php if(($this->config->item('use_auth')) && ($this->session->userdata('user_type') >= 2)) { ?>
 					<th class="d-none d-sm-table-cell"><?php echo $this->lang->line('gen_hamradio_rst_sent'); ?></th>
 					<th class="d-none d-sm-table-cell"><?php echo $this->lang->line('gen_hamradio_rst_recv'); ?></th>
+					<?php } ?>
 					<th><?php echo $this->lang->line('gen_hamradio_band'); ?></th>
+					<th><?php echo $this->lang->line('general_word_country'); ?></th>
 				</tr>
 			</thead>
 
@@ -74,12 +77,15 @@
                         <a id="edit_qso" href="javascript:displayQso(<?php echo $row->COL_PRIMARY_KEY; ?>)"><?php echo str_replace("0","&Oslash;",strtoupper($row->COL_CALL)); ?></a>
 					</td>
 					<td><?php echo $row->COL_SUBMODE==null?$row->COL_MODE:$row->COL_SUBMODE; ?></td>
+					<?php if(($this->config->item('use_auth')) && ($this->session->userdata('user_type') >= 2)) { ?>
 					<td class="d-none d-sm-table-cell"><?php echo $row->COL_RST_SENT; ?> <?php if ($row->COL_STX_STRING) { ?><span class="label"><?php echo $row->COL_STX_STRING;?></span><?php } ?></td>
 					<td  class="d-none d-sm-table-cell"><?php echo $row->COL_RST_RCVD; ?> <?php if ($row->COL_SRX_STRING) { ?><span class="label"><?php echo $row->COL_SRX_STRING;?></span><?php } ?></td>
+					<?php } ?>
 					<?php if($row->COL_SAT_NAME != null) { ?>
 					<td><?php echo $row->COL_SAT_NAME; ?></td>
 					<?php } else { ?>
 					<td><?php echo strtolower($row->COL_BAND); ?></td>
+					<td><?php echo ucwords(strtolower(($row->COL_COUNTRY))); ?></td>
 					<?php } ?>
 				</tr>
 			<?php $i++; } ?>

@@ -1,4 +1,4 @@
-<div class="container debug_main">
+<div class="container debug_main debug">
 
 <h2><?php echo $page_title; ?></h2>
 

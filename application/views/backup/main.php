@@ -1,5 +1,4 @@
-<div class="container">
-<br>
+<div class="container backup">
 	<?php if($this->session->flashdata('message')) { ?>
 		<!-- Display Message -->
 		<div class="alert-message error">

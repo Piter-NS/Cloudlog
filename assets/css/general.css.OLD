@@ -1,0 +1,301 @@
+body {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Helvetica Neue";
+    font-size: 0.9rem;
+    color: #434343;
+    background-color: #f5f5f5;
+    /*background-image: url(images/back-line.png);
+    background-repeat: repeat-x;
+    background-position: left top;*/
+    margin: 0;
+    padding: 0;
+}
+
+.bg-light {
+    background-color: #dcdcdc!important;
+}
+
+.header-cyber-logo {
+    overflow: hidden;
+    background: #29292bfa;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    min-width: 235px;
+}
+
+@media (min-width: 992px) {
+    .modal-lg, .modal-xl {
+        max-width: 900px;
+    }
+}
+
+.main-nav .container {
+    margin-top: 0px !important;
+}
+
+#nav-container {
+	margin-top: 0;
+	position: sticky;
+	top: 0;
+}
+
+thead > tr > td {
+	position: sticky;
+	top: 45px;
+}
+
+.dashboard {
+	padding-top: 15px;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border: 0px solid #dcdcdc;
+}
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    text-align: center;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0 0 5px #d3d3d3;
+    -moz-box-shadow: 0 0 5px #D3D3D3;
+    -webkit-box-shadow: 0 0 5px #d3d3d3;
+    border-collapse: separate;
+}
+
+.row.logdata {
+	padding-top: 15px;
+    background: white;
+    border-radius: 3px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0 0 5px #d3d3d3;
+    -moz-box-shadow: 0 0 5px #D3D3D3;
+    -webkit-box-shadow: 0 0 5px #d3d3d3;
+    border: 1px solid #dcdcdc;
+    border-collapse: separate;
+    margin-bottom: 20px;
+}
+
+.statistics {
+	padding-top: 0.5rem;
+}
+
+.statistics_custom {
+	padding-top: 0.5rem;
+}
+
+.notes {
+	padding-top: 0.5rem;
+}
+
+.eqsl {
+    padding-top: 0.5rem;
+}
+
+.search {
+	padding-top: 0.5rem;
+}
+
+.logbook {
+	padding-top: 0.5rem;
+}
+
+.adif {
+    padding-top: 0.5rem;
+}
+
+.adif .alert p {
+    margin-bottom: 0rem;
+}
+
+.api .alert p {
+    margin-bottom: 0rem;
+}
+
+
+.qso_panel {
+    padding-top: 25px;
+}
+
+.qso_panel #callsign {
+    text-transform: uppercase;
+}
+
+.qso_panel #locator {
+    text-transform: uppercase;
+}
+
+.qso_panel .iota_ref {
+    text-transform: uppercase;
+}
+
+.qso_panel .sota_ref {
+    text-transform: uppercase;
+}
+
+.workedGrid {
+    border-color: green;
+}
+
+.newGrid {
+    border-color: red;
+    border-width: 2px;
+}
+
+#country {
+    border: none;
+}
+
+
+TD.eqsl{
+    width: 33px;
+}
+
+.eqsl-green{
+    color: #00A000;
+    font-size: 1.1em;
+}
+.eqsl-red{
+    color: #F00;
+    font-size: 1.1em;
+}
+.qsl-green{
+    color: #00A000;
+    font-size: 1.1em;
+}
+.qsl-red{
+    color: #F00;
+    font-size: 1.1em;
+}
+.qsl-yellow{
+    color: #d39e00;
+    font-size: 1.1em;
+}
+.qsl-grey{
+    color: #dddddd;
+    font-size: 1.1em;
+}
+TD.lotw{
+    width: 33px;
+}
+.lotw-green{
+    color: #00A000;
+    font-size: 1.1em;
+}
+.lotw-red{
+    color: #F00;
+    font-size: 1.1em;
+}
+
+.qso-edit-box {
+    padding: 10px;
+}
+
+.previous-qsos .card-title {
+    margin-bottom: 0px;
+}
+
+.qso-map .card-title {
+    margin-bottom: 0px;
+}
+
+.qso-map {
+    margin-bottom: 10px;
+}
+
+.callsign-suggest {
+    margin-bottom: 10px;
+}
+
+.callsign-suggest .card-title {
+    margin-bottom: 0px;
+}
+
+
+#search_box #callsign {
+    text-transform: uppercase;
+}
+
+#nav-bar-search-input:focus {
+    text-transform: uppercase;
+}
+
+.settings {
+    padding-top: 15px;
+}
+
+.settings-nav {
+    margin-bottom: 15px;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+}
+
+.settings-nav .nav-link {
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #d1d5da;
+}
+
+.settings-nav .nav-link:hover {
+    background-color: #e1e4e8;
+
+}
+
+/* QSL Card Management CSS */
+
+.qsl_management {
+    padding-top: 15px;
+}
+
+/*
+*
+*
+*/
+.qso-map-new .card-header {
+background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: #ffffff;
+}
+
+#myTab .nav-link {
+    padding: 8px !important;
+}
+
+#map {
+    z-index: 1;
+}
+
+#qsomap {
+    z-index: 1;
+}
+
+#create_station_profile .row {
+    margin-bottom: 10px;
+}
+
+/*
+*   Debug CSS
+*/
+
+    .debug_main .card {
+        margin-bottom: 10px;
+    }
+
+.was-map-dialog .modal-dialog {
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+.was-map-dialog .modal-dialog {
+    max-width: 73% !important;
+}
+} 

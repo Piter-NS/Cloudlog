@@ -7,8 +7,10 @@
             <?php } ?>
             <td><?php echo $this->lang->line('gen_hamradio_call'); ?></td>
             <td><?php echo $this->lang->line('gen_hamradio_mode'); ?></td>
+			<?php if(($this->config->item('use_auth')) && ($this->session->userdata('user_type') >= 2)) { ?>
             <td><?php echo $this->lang->line('gen_hamradio_rsts'); ?></td>
             <td><?php echo $this->lang->line('gen_hamradio_rstr'); ?></td>
+            <?php } ?>
             <td><?php echo $this->lang->line('gen_hamradio_band'); ?></td>
             <td><?php echo $this->lang->line('general_word_country'); ?></td>
             <?php if(($this->config->item('use_auth')) && ($this->session->userdata('user_type') >= 2)) { ?>

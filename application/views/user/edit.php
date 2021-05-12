@@ -1,8 +1,8 @@
-<div class="container">
-	<h3>
+<div class="container user">
+	<h2>
 	  Edit Account
 	  <small class="text-muted"><?php echo $user_name; ?></small>
-	</h3>
+	</h2>
 
 	<?php if($this->session->flashdata('success')) { ?>
 		<!-- Display Success Message -->
@@ -85,6 +85,7 @@
 			</div>
 	    </div>
 
+		<?php if(($this->config->item('use_auth') && ($this->session->userdata('user_type') >= 3)) || $this->config->item('use_auth') === FALSE || ($this->config->item('show_time'))) { ?>
         <div class="col-md">
             <div class="card">
                 <div class="card-header">
@@ -105,6 +106,7 @@
                 </div>
             </div>
         </div>
+		<?php } ?>
 	</div>
 
 	<br>
@@ -189,6 +191,7 @@
 	    </div>
 	</div>
 
+	<?php if(($this->config->item('use_auth') && ($this->session->userdata('user_type') >= 3)) || $this->config->item('use_auth') === FALSE || ($this->config->item('show_time'))) { ?>
 	<br>
 	<div class="row">
 	 	<!-- Logbook of the World -->
@@ -267,8 +270,9 @@
 				</div>
 			</div>
 	    </div>
-
 	</div>
+	<?php } ?>
+
 		<br>
 		<div class="row">
 			<!-- Club Log -->

@@ -93,16 +93,12 @@
 	  }
 	</script>
 
-<div class="container statistics">
-
+<div class="container stat">
 
 <h2>
   <?php echo $page_title; ?>
   <small class="text-muted">Explore the logbook.</small>
 </h2>
-
-
-<br>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">

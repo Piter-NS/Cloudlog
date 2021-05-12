@@ -1,5 +1,7 @@
-<div class="container">
+<div class="container stat">
+
     <h2><?php echo $page_title; ?></h1>
+
         <p>The Timeplotter is used to analyze your logbook and find out when you have worked a certain CQ zone or DXCC on a chosen band.</p>
         <form class="form">
 

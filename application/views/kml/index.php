@@ -1,5 +1,5 @@
-<div class="container">
-<br>
+<div class="container kml">
+
     <h2><?php echo $page_title; ?></h2>
 
     <div class="card">

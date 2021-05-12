@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <?php if($this->optionslib->get_theme()) { ?>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/<?php echo $this->optionslib->get_theme();?>/bootstrap.min.css">
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/<?php echo $this->optionslib->get_theme();?>/bootstrap.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/general.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/<?php echo $this->optionslib->get_theme();?>/overrides.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/<?php echo $this->optionslib->get_theme();?>/selectize.bootstrap4.css"/>
@@ -41,13 +41,19 @@
   	<?php } ?>
     <link rel="icon" href="<?php echo base_url(); ?>/favicon.ico">
 
-    <title><?php if(isset($page_title)) { echo $page_title; } ?> - Cloudlog</title>
+    <title><?php if(isset($page_title)) { echo $page_title; } ?> - Radioklub SP9KRJ</title>
   </head>
   <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light main-nav">
+<!--
+<div class="header-cyber-logo img-resonsive">
+	<a href="<?php echo site_url(); ?>"><img src="/images/banner.png" alt="Limanowski Klub Krótkofalowców - BESKID - SP9KRJ" style="border: 0; width: 1310px; border-radius: 15px;"></a>
+</div>
+-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light main-nav" style="font-size: 1rem;">
 <div class="container">
-		<a class="navbar-brand" href="<?php echo site_url(); ?>">Cloudlog</a>
+		<a class="navbar-brand" href="<?php echo site_url(); ?>" style="font-size: 1rem;">Strona główna</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
@@ -120,6 +126,7 @@
                 </div>
             </li>
 
+			<?php if(($this->config->item('use_auth') && ($this->session->userdata('user_type') >= 3)) || $this->config->item('use_auth') === FALSE || ($this->config->item('show_time'))) { ?>
         	<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
 
@@ -152,7 +159,9 @@
 					<a class="dropdown-item" href="<?php echo site_url('debug');?>" title="Debug Information"><i class="fas fa-tools"></i> Debug Information</a>
 					<?php } ?>
 				</div>
-        	</li>
+			</li>
+			<?php } ?>
+
         <?php } ?>
     </ul>
 
@@ -160,7 +169,7 @@
 		<form method="post" action="<?php echo site_url('search'); ?>" class="form-inline">
 		<input class="form-control mr-sm-2" id="nav-bar-search-input" type="search" name="callsign" placeholder="Search Callsign" aria-label="Search">
 
-		<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Search</button>
+		<button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Search</button>
 		</form>
 	<?php } ?>
 
@@ -172,7 +181,7 @@
 			<input class="form-control mr-sm-2" type="text" name="user_name" placeholder="Username" aria-label="Username">
 			<input class="form-control mr-sm-2" type="password" name="user_password" placeholder="Password" aria-label="Password">
 			<input type="hidden" name="id" value="<?php echo $this->uri->segment(3); ?>" />
-      <button class="btn btn-outline-success mr-sm-2" type="submit">Login</button>
+      <button class="btn btn-success mr-sm-2" type="submit">Login</button>
 	</form>
 	<?php } ?>
 
@@ -185,12 +194,15 @@
 			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				<a class="dropdown-item" href="<?php echo site_url('user/edit')."/".$this->session->userdata('user_id'); ?>" title="Account"><i class="fas fa-user"></i> Account</a>
 
+				<?php if(($this->config->item('use_auth') && ($this->session->userdata('user_type') >= 3)) || $this->config->item('use_auth') === FALSE || ($this->config->item('show_time'))) { ?>
 				<a class="dropdown-item" href="<?php echo site_url('station');?>" title="Manage station locations"><i class="fas fa-home"></i> Station Locations</a>
+				<?php } ?>
 
 				<div class="dropdown-divider"></div>
 
 				<a class="dropdown-item" href="<?php echo site_url('adif');?>" title="Amateur Data Interchange Format (ADIF) import / export"><i class="fas fa-sync"></i> ADIF Import / Export</a>
 
+				<?php if(($this->config->item('use_auth') && ($this->session->userdata('user_type') >= 3)) || $this->config->item('use_auth') === FALSE || ($this->config->item('show_time'))) { ?>
 				<a class="dropdown-item" href="<?php echo site_url('qslprint');?>" title="Print Requested QSLs"><i class="fas fa-print"></i> Print Requested QSLs</a>
 
 				<a class="dropdown-item" href="<?php echo site_url('kml');?>" title="KML Export for Google Earth"><i class="fas fa-sync"></i> KML Export</a>
@@ -214,6 +226,8 @@
 				<a class="dropdown-item" target="_blank" href="https://github.com/magicbug/Cloudlog/wiki" title="Help"><i class="fas fa-question"></i> Help</a>
 
 				<a class="dropdown-item" target="_blank" href="https://github.com/magicbug/Cloudlog/discussions" title="Forum"><i class="far fa-comment-dots"></i> Forum</a>
+
+				<?php } ?>
 
 				<div class="dropdown-divider"></div>
 

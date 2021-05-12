@@ -1,5 +1,6 @@
-<div class="container">
-    <h1><?php echo $page_title; ?></h1>
+<div class="container stat">
+
+    <h2><?php echo $page_title; ?></h2>
 
     <form class="form" action="<?php echo site_url('timeline'); ?>" method="post" enctype="multipart/form-data">
         <!-- Select Basic -->

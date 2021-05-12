@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container award">
 
 	<h2><?php echo $page_title; ?></h2>
 	

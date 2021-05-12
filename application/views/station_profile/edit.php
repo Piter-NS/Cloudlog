@@ -1,6 +1,5 @@
-<div class="container" id="create_station_profile">
+<div class="container station" id="create_station_profile">
 
-<br>
 	<?php if($this->session->flashdata('message')) { ?>
 		<!-- Display Message -->
 		<div class="alert-message error">

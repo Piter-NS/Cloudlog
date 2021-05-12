@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container update">
 	<h2><?php echo $page_title; ?></h2>
 
 	<div class="card">

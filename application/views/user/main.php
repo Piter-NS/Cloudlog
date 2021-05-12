@@ -1,6 +1,5 @@
-<div class="container">
+<div class="container user">
 
-<br>
 <?php if($this->session->flashdata('notice')) { ?>
 	<div id="message" >
     	<?php echo $this->session->flashdata('notice'); ?>

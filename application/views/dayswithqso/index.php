@@ -1,6 +1,4 @@
-<div class="container">
-
-    <br>
+<div class="container stat">
 
     <h2><?php echo $page_title; ?></h2>
 

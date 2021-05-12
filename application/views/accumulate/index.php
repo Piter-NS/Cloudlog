@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container stat">
+
     <h2><?php echo $page_title; ?></h1>
 
         <form class="form">

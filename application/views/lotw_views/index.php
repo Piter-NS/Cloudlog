@@ -1,12 +1,12 @@
 <div class="container lotw">
-<br>
-	<a class="btn btn-outline-primary btn-sm float-right" href="<?php echo site_url('/lotw/import'); ?>" role="button"><i class="fas fa-cloud-download-alt"></i> <?php echo $this->lang->line('lotw_btn_lotw_import'); ?></a>
+
+	<a class="btn btn-primary btn-sm float-right" href="<?php echo site_url('/lotw/import'); ?>" role="button" style="margin-top: 3px;"><i class="fas fa-cloud-download-alt"></i> <?php echo $this->lang->line('lotw_btn_lotw_import'); ?></a>
 	<h2><?php echo $this->lang->line('lotw_title'); ?></h2>
 
 	<!-- Card Starts -->
 	<div class="card">
 		<div class="card-header">
-			<a class="btn btn-outline-success btn-sm float-right" href="<?php echo site_url('/lotw/cert_upload'); ?>" role="button"><i class="fas fa-cloud-upload-alt"></i> <?php echo $this->lang->line('lotw_btn_upload_certificate'); ?></a><i class="fab fa-expeditedssl"></i> <?php echo $this->lang->line('lotw_title_available_cert'); ?>
+			<a class="btn btn-success btn-sm float-right" href="<?php echo site_url('/lotw/cert_upload'); ?>" role="button"><i class="fas fa-cloud-upload-alt"></i> <?php echo $this->lang->line('lotw_btn_upload_certificate'); ?></a><i class="fab fa-expeditedssl"></i> <?php echo $this->lang->line('lotw_title_available_cert'); ?>
 		</div>
 
 		<div class="card-body">
@@ -70,7 +70,7 @@
 									<?php } ?>
 								</td>
 								<td>
-									<a class="btn btn-outline-danger btn-sm" href="<?php echo site_url('lotw/delete_cert/'.$row->lotw_cert_id); ?>" role="button"><i class="far fa-trash-alt"></i> <?php echo $this->lang->line('lotw_btn_delete'); ?></a>
+									<a class="btn btn-danger btn-sm" href="<?php echo site_url('lotw/delete_cert/'.$row->lotw_cert_id); ?>" role="button"><i class="far fa-trash-alt"></i> <?php echo $this->lang->line('lotw_btn_delete'); ?></a>
 								</td>
 							</tr>
 						<?php } ?>
@@ -98,7 +98,7 @@
 		</div>
 
 		<div class="card-body">
-			<p><a class="btn btn-outline-success" href="<?php echo site_url('lotw/lotw_upload'); ?>"><?php echo $this->lang->line('lotw_btn_manual_sync'); ?></a></p>
+			<p><a class="btn btn-success" href="<?php echo site_url('lotw/lotw_upload'); ?>"><?php echo $this->lang->line('lotw_btn_manual_sync'); ?></a></p>
 		</div>
 	</div>
 

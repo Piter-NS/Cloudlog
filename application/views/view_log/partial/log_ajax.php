@@ -1,5 +1,7 @@
-<div class="table-responsive">
-    <table class="table table-striped table-hover">
+<div class="table-responsive" style="overflow-x: visible;">
+<div class="row logdata">
+  <div class="col-sm-12">
+  <table class="table table-striped table-hover">
         <tr class="titles">
             <td><?php echo $this->lang->line('general_word_date'); ?></td>
             <?php if(($this->config->item('use_auth') && ($this->session->userdata('user_type') >= 2)) || $this->config->item('use_auth') === FALSE || ($this->config->item('show_time'))) { ?>
@@ -7,8 +9,10 @@
             <?php } ?>
             <td><?php echo $this->lang->line('gen_hamradio_call'); ?></td>
             <td><?php echo $this->lang->line('gen_hamradio_mode'); ?></td>
+            <?php if(($this->config->item('use_auth')) && ($this->session->userdata('user_type') >= 2)) { ?>
             <td><?php echo $this->lang->line('gen_hamradio_rsts'); ?></td>
             <td><?php echo $this->lang->line('gen_hamradio_rstr'); ?></td>
+            <?php } ?>
             <td><?php echo $this->lang->line('gen_hamradio_band'); ?></td>
             <td><?php echo $this->lang->line('general_word_country'); ?></td>
             <?php if(($this->config->item('use_auth')) && ($this->session->userdata('user_type') >= 2)) { ?>
@@ -46,8 +50,10 @@
                 <a id="edit_qso" href="javascript:displayQso(<?php echo $row->COL_PRIMARY_KEY; ?>)"><?php echo str_replace("0","&Oslash;",strtoupper($row->COL_CALL)); ?></a>
             </td>
             <td><?php echo $row->COL_SUBMODE==null?$row->COL_MODE:$row->COL_SUBMODE; ?></td>
+            <?php if(($this->config->item('use_auth')) && ($this->session->userdata('user_type') >= 2)) { ?>
             <td><?php echo $row->COL_RST_SENT; ?> <?php if ($row->COL_STX) { ?><span class="badge badge-light"><?php echo $row->COL_STX;?></span><?php } ?><?php if ($row->COL_STX_STRING) { ?><span class="badge badge-light"><?php echo $row->COL_STX_STRING;?></span><?php } ?></td>
             <td><?php echo $row->COL_RST_RCVD; ?> <?php if ($row->COL_SRX) { ?><span class="badge badge-light"><?php echo $row->COL_SRX;?></span><?php } ?><?php if ($row->COL_SRX_STRING) { ?><span class="badge badge-light"><?php echo $row->COL_SRX_STRING;?></span><?php } ?></td>
+            <?php } ?>
             <?php if($row->COL_SAT_NAME != null) { ?>
                 <td><?php echo $row->COL_SAT_NAME; ?></td>
             <?php } else { ?>
@@ -152,7 +158,10 @@
             <?php $i++; } ?>
 
     </table>
-
+   </div>
+  </div>
+  
+  
     <?php if (isset($this->pagination)){ ?>
         <?php
         $config['full_tag_open'] = '<ul class="pagination">';

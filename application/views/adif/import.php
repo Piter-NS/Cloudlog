@@ -8,15 +8,17 @@
         <li class="nav-item">
             <a class="nav-link active" id="import-tab" data-toggle="tab" href="#import" role="tab" aria-controls="import" aria-selected="true">ADIF Import</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" id="export-tab" data-toggle="tab" href="#export" role="tab" aria-controls="export" aria-selected="false">ADIF Export</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="lotw-tab" data-toggle="tab" href="#lotw" role="tab" aria-controls="lotw" aria-selected="false">Logbook Of The World</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="qrz-tab" data-toggle="tab" href="#qrz" role="tab" aria-controls="qrz" aria-selected="false">QRZ Logbook</a>
-        </li>
+		<?php if(($this->config->item('use_auth') && ($this->session->userdata('user_type') >= 3)) || $this->config->item('use_auth') === FALSE || ($this->config->item('show_time'))) { ?>
+            <li class="nav-item">
+                <a class="nav-link" id="export-tab" data-toggle="tab" href="#export" role="tab" aria-controls="export" aria-selected="false">ADIF Export</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="lotw-tab" data-toggle="tab" href="#lotw" role="tab" aria-controls="lotw" aria-selected="false">Logbook Of The World</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="qrz-tab" data-toggle="tab" href="#qrz" role="tab" aria-controls="qrz" aria-selected="false">QRZ Logbook</a>
+            </li>
+		<?php } ?>
     </ul>
     </div>
 
@@ -30,24 +32,29 @@
                     </div>
                 <?php } ?>
 
-                <p><span class="badge badge-warning">Important</span> Log files must have the file type .adi</p>
-                <p><span class="badge badge-warning">Warning</span> Maximum file upload size is <?php echo $max_upload; ?>B.</p>
+                <p><span class="badge badge-warning"> Ważne </span> Pliki dziennika muszą mieć typ pliku .adi</p>
+                <p><span class="badge badge-warning"> Ostrzeżenie </span> Maksymalny rozmiar przesyłanych plików:  <?php echo $max_upload; ?>B.</p>
+
+                <div class="alert alert-warning" role="alert" style="color: #ffffff; background-color: #ff0000; border-color: #ff0000; padding: 0.7rem 0.7rem;">
+			        <span class="badge badge-info" style="font-size: 90%; margin-right: 10px; color: #212529; background-color: #ffc107;">Bardzo ważne</span><b> Łączności zapisane w pliku .adi muszą dotyczyć tylko znaku klubowego SP9KRJ. Proces importu danych jest nieodwracalny.</b>
+                </div>
 
                 <form class="form" action="<?php echo site_url('adif/import'); ?>" method="post" enctype="multipart/form-data">
                     <select name="station_profile" class="custom-select mb-2 mr-sm-2" style="width: 20%;">
-                    <option value="0">Select Station Profile</option>
+                    <option value="0">Wybierz znak stacji</option>
                     <?php foreach ($station_profile->result() as $station) { ?>
-                    <option value="<?php echo $station->station_id; ?>">Callsign: <?php echo $station->station_callsign; ?> (<?php echo $station->station_profile_name; ?>)</option>
+                    <option value="<?php echo $station->station_id; ?>"><?php echo $station->station_callsign; ?></option>
                     <?php } ?>
                     </select>
                   <label class="sr-only" for="inlineFormInputName2">ADIF file</label>
                   <input class="file-input mb-2 mr-sm-2" type="file" name="userfile" size="20" />
 
-                    <div class="form-group row">
+                  <?php if(($this->config->item('use_auth') && ($this->session->userdata('user_type') >= 3)) || $this->config->item('use_auth') === FALSE || ($this->config->item('show_time'))) { ?>
+                   <div class="form-group row">
                         <div class="col-md-10">
                             <div class="form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="skipDuplicate" value="1" id="skipDuplicate">
-                                <label class="form-check-label" for="skipDuplicate">Skip duplicate QSO check</label>
+                                <label class="form-check-label" for="skipDuplicate">Pomiń sprawdzanie duplikatów łączności</label>
                             </div>
                         </div>
                     </div>
@@ -56,9 +63,9 @@
                         <div class="col-md-10">
                             <div class="form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="markLotw" value="1" id="markLotwImport">
-                                <label class="form-check-label" for="markLotwImport">Mark imported QSOs as uploaded to LoTW</label>
+                                <label class="form-check-label" for="markLotwImport">Oznacz importowane QSO jako przesłane do LoTW</label>
                             </div>
-                            <div class="small form-text text-muted">Select if ADIF being imported does not contain this information.</div>
+                            <div class="small form-text text-muted">Wybierz, jeśli importowany ADIF nie zawiera tych informacji.</div>
                         </div>
                     </div>
 
@@ -66,32 +73,32 @@
                         <div class="col-md-10">
                             <div class="form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="markQrz" value="1" id="markQrzImport">
-                                <label class="form-check-label" for="markQrzImport">Mark imported QSOs as uploaded to QRZ Logbook</label>
+                                <label class="form-check-label" for="markQrzImport">Oznacz importowane QSO jako przesłane do dziennika QRZ</label>
                             </div>
-                            <div class="small form-text text-muted">Select if ADIF being imported does not contain this information.</div>
+                            <div class="small form-text text-muted">Wybierz, jeśli importowany ADIF nie zawiera tych informacji.</div>
                         </div>
                     </div>
+                    <?php } ?>
 
                     <div class="form-group row">
                         <div class="col-md-10">
                             <div class="form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="dxccAdif" value="1" id="dxccAdif">
-                                <label class="form-check-label" for="dxccAdif">Use DXCC information from ADIF</label>
+                                <label class="form-check-label" for="dxccAdif">Użyj informacji DXCC z ADIF</label>
                             </div>
-                            <div class="small form-text text-muted">If not selected, Cloudlog will attempt to determine DXCC information automatically.</div>
+                            <div class="small form-text text-muted">Jeśli nie jest zaznaczone, Cloudlog spróbuje automatycznie określić informacje DXCC.</div>
                         </div>
                     </div>
-
 					<div class="form-group row">
 						<div class="col-md-10">
 							<div class="form-check-inline">
 								<input class="form-check-input" type="checkbox" name="operatorName" value="1" id="operatorName">
-								<label class="form-check-label" for="operatorName">Always use login-callsign as operator-name on import</label>
+								<label class="form-check-label" for="operatorName">Zawsze używaj znaku logowania jako nazwy operatora podczas importu</label>
 							</div>
 						</div>
 					</div>
 
-                  <button type="submit" class="btn-sm btn-primary mb-2" value="Upload">Upload</button>
+                  <button type="submit" class="btn btn-primary" value="Upload">Wyślij dziennik łączności</button>
                 </form>
                 </div>
 
